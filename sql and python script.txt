@@ -1,0 +1,122 @@
+
+CREATE TABLE employees (
+    id serial PRIMARY KEY,    -------- UUID  rujt694y5-596256-548
+    name text,
+    age integer
+);
+
+
+INSERT INTO employees (id, name, age)
+VALUES
+    (1, 'John Doe', 30),
+    (2, 'Jane Smith', 28),
+    (3, 'Michael Johnson', 35);
+
+
+UPDATE employees
+SET age = age + 1
+WHERE age < 30;
+
+
+DELETE FROM employees
+WHERE id = 1;
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# import psycopg2
+
+# conn = psycopg2.connect(
+#     host="localhost",
+#     database="emplo",
+#     user="postgres",
+#     password="1918"
+# )
+# cursor = conn.cursor()
+# cursor.execute('''
+#     CREATE TABLE IF NOT EXISTS users (
+#         id SERIAL PRIMARY KEY,
+#         username VARCHAR(255) NOT NULL UNIQUE,
+#         password VARCHAR(255) NOT NULL
+#     )
+# ''')
+# conn.commit()
+
+
+
+
+
+
+
+
+
+
+
+
+# def register(username, password):
+#     try:
+#         cursor.execute("INSERT INTO users (username, password) VALUES (%s, %s)", (username, password))
+#         conn.commit()
+#         print("Registration successful!")
+#     except psycopg2.Error as e:
+#         print("Registration failed:", e)
+
+
+# def login(username, password):
+#     cursor.execute("SELECT * FROM users WHERE username=%s AND password=%s", (username, password))
+#     user = cursor.fetchone()
+
+#     if user:
+#         print("Login successful!")
+#     else:
+#         print("Login failed. Invalid username or password.")
+
+# password = "pass123"
+## hashed_password = hash_password(password)
+
+# password2 = "pass1223"
+## hashed_password2 = hash_password(password)
+
+# register("dswdw", password)  
+# login("dswdw", password)    
+# login("johdswdwn34", password2)  
+
+# conn.close()
+
+
+
+
+
+# import bcrypt 
+
+# def hash_password(password):
+#     salt = bcrypt.gensalt()
+#     hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
+#     return hashed_password.decode('utf-8')
+
+# def verify_password(password, hashed_password):
+#     return bcrypt.checkpw(password.encode('utf-8'), hashed_password.encode('utf-8'))
+
+# hashed_password = hash_password('pass123')
+# print('hashed_password      1')
+# print(hashed_password)
+# print()
+# print()
+# print()
+
+# veri1 = verify_password('pass123',hashed_password)
+# print('veri1                ====> ',veri1)
+# print()
+# hashed_password2 = hash_password('pass123')
+# print('hashed_password      2')
+# print(hashed_password2)
+# print()
+# print()
+
+# veri2 = verify_password('pass123',hashed_password2)
+
+# print('veri2                =====> ',veri2)
+# print()
+# print(hashed_password == hashed_password2)
